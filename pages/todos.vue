@@ -1,5 +1,18 @@
 <template>
     <div>
+        <!-- {{todos}} -->
+        <ul>
+            <li v-for="todo in todos" :key="todo.id">
+                <!-- {{todo}} -->
+                <input
+                type="checkbox"
+                v-bind:checked="todo.done"
+                @change="toggle(todo)">
+                
+                {{todo.name}}{{todo.created}}
+                <button v-on:click="remove(todo.id)">X</button>
+            </li>
+        </ul>
         <div class="form">
             <form v-on:submit.prevent="add">
               <input v-model="name" >
@@ -24,6 +37,17 @@ export default {
         add(){
             this.$store.dispatch('todos/add', this.name)
             this.name = ''
+        },
+        remove(id) {
+            this.$store.dispatch('todos/remove', id)
+        },
+        toggle(todo) {
+            this.$store.dispatch('todos/toggle', todo)
+        }
+    },
+    computed: {
+        todos(){
+            return this.$store.state.todos.todos
         }
     }
 }

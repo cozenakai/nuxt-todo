@@ -24,7 +24,7 @@ export const actions = {
     remove: firestoreAction((context, id) => {
         todosRef.doc(id).delete()
     }),
-    toggle: firestoreAction((context, id) => {
+    toggle: firestoreAction((context, todo) => {
         todosRef.doc(todo.id).update({
             done: !todo.done
         })
