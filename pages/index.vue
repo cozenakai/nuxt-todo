@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <div>
+      <nuxt-link to="/todos">
+      頑張ろう！
+      </nuxt-link>
       <!-- <div v-if="done">
         アイウエオ
       </div>
@@ -50,6 +53,7 @@ export default {
         done: true
     }
   },
+  layout: 'navbar'
 }
 </script>
 

@@ -1,8 +1,6 @@
 
 <template>
     <div>
-        <Header/>
-        <!-- {{todos}} -->
         <ul>
             <li v-for="todo in todos" :key="todo.id">
                 
@@ -61,12 +59,13 @@ export default {
     },
     filters: {
         dateFilter: function(date) {
-            return moment(date).format('YYYY/MM/DD HH:mm:ss')
+            return moment(date).format('YYYY年MM月DD日 HH:mm')
         }
     },
     components:{
         Header
-    }
+    },
+    layout: 'navbar'
 }
 </script>
 
