@@ -1,9 +1,11 @@
+
 <template>
     <div>
+        <Header/>
         <!-- {{todos}} -->
         <ul>
             <li v-for="todo in todos" :key="todo.id">
-                <!-- {{todo}} -->
+                
                 <span v-if="todo.created">
                     <input
                     type="checkbox"
@@ -13,7 +15,7 @@
                     {{todo.name}}{{todo.created.toDate() | dateFilter}}
                     </span>
                     <button v-on:click="remove(todo.id)">X</button>
-                    <!-- {{todo.id}} -->
+                    
                 </span>
             </li>
         </ul>
@@ -28,6 +30,7 @@
 
 <script>
 import moment from 'moment'
+import Header from'../components/Header.vue'
 export default {
     data: function(){
         return {
@@ -60,6 +63,9 @@ export default {
         dateFilter: function(date) {
             return moment(date).format('YYYY/MM/DD HH:mm:ss')
         }
+    },
+    components:{
+        Header
     }
 }
 </script>

@@ -5,7 +5,7 @@ const db = firebase.firestore()
 const todosRef = db.collection('todos')
 
 export const state = () => ({
-    todos: []
+    todos: [],
 })
 
 export const actions = {

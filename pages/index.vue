@@ -1,7 +1,16 @@
 <template>
   <div class="container">
     <div>
+      <!-- <div v-if="done">
+        アイウエオ
+      </div>
+
+      <div v-if="false">
+        アイウエオ
+      </div>     -->
+    
       <logo />
+
       <h1 class="title">
         nuxt-todo
       </h1>
@@ -34,7 +43,13 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
-  }
+  },
+  data: function(){
+    return {
+        name: '',
+        done: true
+    }
+  },
 }
 </script>
 
